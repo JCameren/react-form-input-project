@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Form Input with Validation
+=======
+# Work in progress :D
+>>>>>>> 79f559268988333dfea8d7bfb986bcaeb4542132
 
 This was a project I did that looks at user input and stores it in its own state. I learned a lot about prop drilling and the concept of "lifting state" in order to make it accessible to child components. The global state was handle at the App level which called a function that created an array of objects and then stored it in a prop that the InputForm could then use by using the information already set up in the form. The arguments being the name and age variables.
 
