@@ -1,20 +1,42 @@
 import React, { useState } from 'react'
 import { Button } from '../styled-components/Button'
 import { Form } from '../styled-components/Form'
-import { User } from './User'
+import ErrorModal from './ErrorModal'
+
 
 
 
 const InputForm = (props) => {
     const [enteredUsername, setEnteredUsername] = useState('')
     const [enteredAge, setEnteredAge] = useState('')
+    const [error, setError]  = useState(null)
+    
     
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
-    console.log(enteredUsername, enteredAge)
+    if(enteredUsername.trim().length === 0 | enteredAge.trim().length === 0) {
+      setError({
+        title: 'Incomplete',
+        message: 'Please entered a valid input greater than zero (no empty values)'
+      })
+      setEnteredUsername('')
+      setEnteredAge('')
+      return
+    }
+    if(+enteredAge < 1) {
+      setError({
+        title: 'Invalid number',
+        message: 'Please entered a valid number greater than zero (no empty values)'
+      })
+      setEnteredAge('')
+      return
+    }
+
+    props.onAddUser(enteredUsername, enteredAge)
     setEnteredUsername('')
     setEnteredAge('')
+    
   }
 
     const handleUsernameChange = (event) => {
@@ -25,8 +47,14 @@ const InputForm = (props) => {
         setEnteredAge(event.target.value)
     }
 
+    const handleErrorState = () => {
+      setError(null)
+    }
+
   return (
+    
     <>
+    {error && <ErrorModal title={error.title} message={error.message} onConfirm={handleErrorState}/>}
     <Form onSubmit={handleFormSubmit}>
         <label>Username</label>
         <input type='text'
@@ -38,11 +66,10 @@ const InputForm = (props) => {
         <input type='number'
         onChange={handleAgeChange}
         value={enteredAge}
-        placeholder='Enter number here' />
+        placeholder='Enter a reasonable number here' />
 
         <Button>Add User</Button>
     </Form>
-    <User />
     </>
   )
 }

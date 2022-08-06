@@ -21,4 +21,13 @@ export const GlobalStyles = createGlobalStyle`
         color: white;
         font-size: 20px;
     }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        margin-bottom: 1rem;
+    }
+
 `

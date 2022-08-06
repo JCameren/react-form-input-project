@@ -8,7 +8,13 @@ export const Card = styled.div`
     padding: 0.75rem;
     background-color: #fff;
 
-    & h2 {
-        font-size: 20px;
+    h2 {
+        padding: 0.75rem;
+        border: 1px solid #eee;
+        margin: 0.5rem;
+        width: 100%;
+        border-radius: 5px;
     }
 `
+
+export default Card
