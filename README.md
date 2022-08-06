@@ -8,7 +8,7 @@ The User component then looks at this array of objects from the App component, g
 
 I also added some error handling in case there is invalid input types, like negative numbers or empty values. I learned about the trim method and how it is definitely useful for form input checking and + which checks numbers in strings as actual numbers which is also pretty handy!
 
-I also added a modal with conditional rendering that looks at the form submit handler function. It checks if the error state is truthy, which it is if there is an issue with input values. It will display with 2 'dynamic' messages that addresses the issue with a buttom that sets the error state back the null thus removing it from the UI.
+I also added a modal with conditional rendering that looks at the form submit handler function. It checks if the error state is truthy, which it is if there is an issue with input values. It will display with 2 'dynamic' messages that addresses the issue with a button that sets the error state back to null thus removing it from the UI.
 
 I might add some styling to the modal in the future but I was more concerned with its functionality than anything.
 
