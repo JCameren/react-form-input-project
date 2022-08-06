@@ -24,6 +24,16 @@ const InputForm = (props) => {
       setEnteredAge('')
       return
     }
+    if(enteredUsername.trim().length === 0) {
+      setError({
+        title: 'Empty name',
+        message: 'Please enter a valid input greater than zero (no empty values)'
+      })
+      setEnteredUsername('')
+      setEnteredAge('')
+      return
+    }
+    
     if(+enteredAge < 1) {
       setError({
         title: 'Invalid number',
